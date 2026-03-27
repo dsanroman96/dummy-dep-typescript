@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   release:
-    uses: dsanroman96/workflow-templates/workflows/dependency-release.yml@main
+    uses: dsanroman96/workflow-templates/.github/workflows/dependency-release.yml@main
     with:
       bump: ${{ inputs.bump }}
       project_type: typescript
