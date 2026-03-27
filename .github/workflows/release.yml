@@ -12,6 +12,11 @@ on:
           - patch
           - minor
           - major
+      open_pr:
+        description: "Request consumers to open PRs"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -22,4 +27,5 @@ jobs:
     with:
       bump: ${{ inputs.bump }}
       project_type: typescript
+      open_pr: ${{ inputs.open_pr }}
     secrets: inherit
