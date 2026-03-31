@@ -12,6 +12,11 @@ on:
           - patch
           - minor
           - major
+      open_pr:
+        description: "Request downstream repositories to open PRs"
+        required: false
+        default: true
+        type: boolean
 
 permissions:
   contents: write
@@ -22,5 +27,6 @@ jobs:
     with:
       bump: ${{ inputs.bump }}
       project_type: typescript
+      open_pr: ${{ inputs.open_pr }}
       downstream_repos: ${{ vars.DOWNSTREAM_REPOS }}
     secrets: inherit
