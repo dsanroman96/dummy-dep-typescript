@@ -13,7 +13,7 @@ on:
           - minor
           - major
       open_pr:
-        description: "Request consumers to open PRs"
+        description: "Request downstream repositories to open PRs"
         required: false
         default: false
         type: boolean
@@ -23,9 +23,10 @@ permissions:
 
 jobs:
   release:
-    uses: dsanroman96/workflow-templates/.github/workflows/dependency-release.yml@main
+    uses: dsanroman96/workflow-templates/.github/workflows/upstream-release.yml@main
     with:
       bump: ${{ inputs.bump }}
       project_type: typescript
       open_pr: ${{ inputs.open_pr }}
+      downstream_repos: ${{ vars.DOWNSTREAM_REPOS }}
     secrets: inherit
